@@ -1,4 +1,4 @@
-# Claude Skills for Structural Engineering
+# Claude Skills for ​Civil Engineering
 
 Professional AI-assisted structural design calculations following international standards. These skills enable Claude to perform complex engineering calculations with proper code implementation and design verification.
 
