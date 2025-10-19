@@ -203,6 +203,6 @@ Always follow local building codes and regulations.
 
 ---
 
-**Author:** Sompote Youwai
+**Author:** AI Research Group KMUTT
 **Version:** 1.0
 **Last Updated:** October 2025
