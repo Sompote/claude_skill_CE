@@ -1,0 +1,12 @@
+name: AISC 360 Steel Design
+description: Comprehensive steel structural member design according to AISC 360-22 using SI units (N, mm, MPa). Includes tension, compression, flexure, shear, combined loading, and connections with complete Python implementations.
+version: 1.0.0
+author: Structural Engineering Expert
+tags:
+  - structural engineering
+  - steel design
+  - AISC 360
+  - structural analysis
+  - civil engineering
+  - building design
+  - connection design

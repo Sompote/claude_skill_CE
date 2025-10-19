@@ -1,207 +1,201 @@
-# Claude Skills for Civil Engineering Design
+# Claude Skills for Structural Engineering
 
-A collection of professional Claude AI skills for civil engineering calculations and design, currently featuring Eurocode 7 foundation design capabilities.
-
-## Overview
-
-This repository contains Claude AI skills that enable AI-assisted civil engineering design calculations following international standards. These skills provide detailed, step-by-step design procedures with proper verification methods and professional output formatting.
+Professional AI-assisted structural design calculations following international standards. These skills enable Claude to perform complex engineering calculations with proper code implementation and design verification.
 
 ## Available Skills
 
-### Eurocode 7 Foundation Design (`eurocode7-foundation`)
+### 1. Foundation Design (`eurocode7-foundation`)
+**Standard:** EN 1997-1:2004 (Eurocode 7)
 
-Professional shallow foundation design tool compliant with EN 1997-1:2004 (Eurocode 7). Supports all three Design Approaches (DA1, DA2, DA3) used across European countries.
+Design shallow foundations with complete bearing capacity, settlement, and structural calculations.
 
 **Capabilities:**
-- Pad, strip, and raft foundation design
-- Bearing capacity verification (GEO limit state)
-- Settlement analysis (SLS)
-- Sliding resistance checks
-- Structural design with reinforcement calculations (STR limit state)
-- Support for eccentric/inclined loading
-- Layered soil conditions
-- Multiple design approach combinations
+- Pad, strip, and raft foundations
+- All Design Approaches (DA1, DA2, DA3)
+- Bearing capacity verification
+- Settlement analysis
+- Sliding resistance
+- Reinforcement design
 
-**Standards Compliance:**
-- EN 1997-1:2004 (Eurocode 7: Geotechnical Design)
-- EN 1992-1-1:2004 (Eurocode 2: Structural Design)
+### 2. Steel Design (`aisc360-steel`)
+**Standard:** AISC 360-22 (16th Edition)
 
-## Installation & Setup
+Comprehensive steel member design with Python calculation implementations.
 
-### Prerequisites
+**Capabilities:**
+- Tension, compression, and flexural members
+- Shear and combined loading
+- Beam-columns with interaction equations
+- Bolted and welded connections
+- Both LRFD and ASD methods
+- Complete Python code generation
 
-- Claude Desktop app or Claude Code CLI
-- Basic understanding of geotechnical engineering principles
+## Installation
 
-### Installation Steps
+### Option 1: Direct Copy (Recommended)
 
-1. **Clone this repository:**
+1. **Locate Claude's skills directory:**
+   - macOS/Linux: `~/.claude/skills/`
+   - Windows: `%USERPROFILE%\.claude\skills\`
+
+2. **Copy skills:**
    ```bash
-   git clone https://github.com/yourusername/claude_skill.git
-   cd claude_skill
-   ```
-
-2. **Locate your Claude skills directory:**
-   - **macOS/Linux:** `~/.claude/skills/`
-   - **Windows:** `%USERPROFILE%\.claude\skills\`
-
-3. **Copy the skill to Claude's skills directory:**
-   ```bash
-   # Create skills directory if it doesn't exist
    mkdir -p ~/.claude/skills/
-
-   # Copy the eurocode7-foundation skill
    cp -r eurocode7-foundation ~/.claude/skills/
+   cp -r aisc360-steel ~/.claude/skills/
    ```
 
-4. **Restart Claude Desktop** or reload your Claude Code session to load the new skill.
+3. **Restart Claude Desktop** or reload Claude Code
+
+### Option 2: ZIP Upload to Claude Desktop
+
+1. **Create ZIP files for each skill:**
+   ```bash
+   cd /path/to/claude_skill
+   zip -r eurocode7-foundation.zip eurocode7-foundation/
+   zip -r aisc360-steel.zip aisc360-steel/
+   ```
+
+2. **Upload to Claude Desktop:**
+   - Open Claude Desktop
+   - Go to Settings > Custom Skills
+   - Click "Upload Skill"
+   - Select the ZIP file
+   - Restart Claude Desktop
 
 ## Usage
 
-### Activating a Skill
+### Activating Skills
 
-In Claude Desktop or Claude Code, you can activate a skill by mentioning it in your conversation:
-
+**In Claude Desktop or Claude Code:**
 ```
-@eurocode7-foundation Design a square pad foundation for a 300x300mm column
-with dead load 500kN and live load 200kN. Soil has φ'=30°, c'=5kPa, γ=18kN/m³.
-Use Design Approach 1 (UK). Allowable settlement is 25mm.
+@eurocode7-foundation Design a 2m x 2m pad foundation for 500kN dead load
+and 200kN live load. Soil: φ'=30°, c'=5kPa, γ=18kN/m³. Use DA1 (UK).
 ```
 
-### Example Workflow
+```
+@aisc360-steel Design a W310x52 beam-column for Pu=500kN and Mu=150kN·m.
+Length 4m, lateral bracing at 2m. A992 steel, LRFD method.
+```
 
-1. **Start a conversation** and reference the skill:
-   ```
-   @eurocode7-foundation I need to design a foundation
-   ```
+### What You Get
 
-2. **Provide design parameters** when prompted:
-   - Design Approach (DA1/DA2/DA3)
-   - Soil parameters (φ', c', cu, γ, E')
-   - Loading (Gk, Qk, Hk, Mk)
-   - Foundation constraints (depth, settlement limits)
+**Foundation Design:**
+- Complete design calculations
+- ULS and SLS verification
+- Reinforcement schedule
+- Design summary with utilization ratios
+- Professional calculation sheets
 
-3. **Receive comprehensive design output** including:
-   - Design data summary
-   - ULS verification (bearing capacity, sliding)
-   - SLS verification (settlement)
-   - Structural design (reinforcement)
-   - Summary table with utilization ratios
-   - Design notes and assumptions
+**Steel Design:**
+- Python code for all calculations
+- Member capacity verification
+- Interaction checks
+- Connection design
+- Step-by-step analysis
+- Utilization ratios
 
-### Design Approaches
+## Examples
 
-The skill supports all three Eurocode 7 Design Approaches:
+### Foundation Design Example
+```
+Design a square pad foundation:
+- Column: 300x300mm
+- Loads: Gk=500kN, Qk=200kN
+- Soil: φ'=30°, c'=5kPa, γ=18kN/m³, E'=25MPa
+- Design Approach: DA1 (UK)
+- Settlement limit: 25mm
+```
 
-- **DA1 (UK, Sweden):** Two combinations required (A1+M1+R1 and A2+M2+R1)
-- **DA2 (Germany, Italy, Poland):** Single combination (A1+M1+R2)
-- **DA3 (France, Belgium, Austria):** Single combination with geotechnical/structural distinction
+### Steel Design Example
+```
+Design a tension member:
+- Member: L100x100x10 angle
+- Load: Pu=150kN (LRFD)
+- Connection: 2 bolts, U=0.80
+- Steel: A36 (Fy=250MPa, Fu=400MPa)
+```
+
+## Features
+
+### Professional Output
+- Clear calculation procedures
+- Code-compliant design
+- Quality assurance checks
+- Design assumptions documented
+
+### Comprehensive Analysis
+- Multiple limit states
+- Proper safety factors
+- Effective dimensions
+- Load combinations
+
+### Code Implementation
+- Python functions ready to use
+- Complete with comments
+- Unit conversions handled
+- Verification examples
+
+## Standards Compliance
+
+| Skill | Standard | Edition | Region |
+|-------|----------|---------|--------|
+| eurocode7-foundation | EN 1997-1 | 2004 | Europe |
+| aisc360-steel | AISC 360 | 16th (2022) | USA |
 
 ## Skill Structure
 
 ```
 eurocode7-foundation/
-├── SKILL.md              # Main skill prompt and procedures
+├── SKILL.md              # Main skill prompt
 └── references/
-    ├── FACTORS.md        # Shape, depth, and inclination factors
-    ├── STRUCTURAL.md     # Reinforcement and structural design details
-    └── EXAMPLES.md       # Worked examples for common cases
+    ├── FACTORS.md        # Design factors
+    ├── STRUCTURAL.md     # Structural design
+    └── EXAMPLES.md       # Worked examples
+
+aisc360-steel/
+├── SKILL.md              # Complete design guide with Python
+├── README.md             # Skill documentation
+└── skill.yaml            # Skill configuration
 ```
 
-## Features
+## Requirements
 
-### Comprehensive Design Verification
-
-- Multiple limit state checks (ULS and SLS)
-- Proper application of partial safety factors
-- Effective dimension calculations for eccentric loading
-- Inclination factors for horizontal loads
-
-### Professional Output
-
-- Clearly formatted calculation sheets
-- Step-by-step verification procedures
-- Utilization ratios for all checks
-- Construction notes and assumptions
-- Design summary tables
-
-### Quality Assurance
-
-Built-in quality checks ensure:
-- Correct design approach application
-- Proper partial factor selection
-- Eccentricity effects included
-- Water table effects considered
-- Both combinations verified (for DA1)
-
-## Example Use Cases
-
-1. **Residential Building Foundations**
-   - Design pad foundations for columns
-   - Combined footings
-   - Strip foundations for load-bearing walls
-
-2. **Industrial Structures**
-   - Heavy machinery foundations
-   - Crane bases with moment loading
-   - Foundations on weak soils
-
-3. **Infrastructure Projects**
-   - Bridge abutments
-   - Retaining wall foundations
-   - Tower foundations
+- Claude Desktop app or Claude Code CLI
+- Basic understanding of structural engineering
+- For Python code: Python 3.7+ with numpy
 
 ## Limitations
 
-- Currently supports **shallow foundations only** (pad, strip, raft)
-- Deep foundations (piles) not yet implemented
-- Assumes static loading (no dynamic/seismic analysis)
-- Foundation on rock requires engineering judgment
+**Foundation Design:**
+- Shallow foundations only (no piles)
+- Static loading (no seismic)
+- Requires soil investigation data
 
-## Contributing
-
-Contributions are welcome! To add new skills or improve existing ones:
-
-1. Fork this repository
-2. Create a feature branch (`git checkout -b feature/new-skill`)
-3. Follow the existing skill structure and documentation format
-4. Add comprehensive examples and references
-5. Submit a pull request
-
-## Roadmap
-
-Planned future skills:
-- Deep foundations (pile design to EN 1997-1)
-- Retaining wall design (EN 1997-1)
-- Soil slope stability analysis
-- Pavement design
-- Concrete member design (beams, columns, slabs)
-- Steel connection design
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Author
-
-Sompote Youwai
-
-## Acknowledgments
-
-- Based on EN 1997-1:2004 (Eurocode 7) standards
-- References Brinch Hansen bearing capacity theory
-- Follows UK National Annex guidance
+**Steel Design:**
+- Standard sections (W-shapes, angles, HSS)
+- No plate girders or complex sections
+- Assumes compact sections for flexure
 
 ## Support
 
-For issues, questions, or suggestions:
-- Open an issue on GitHub
-- Contact: [your-email@example.com]
+For issues or questions:
+- GitHub: https://github.com/Sompote/claude_skill_CE
+- Review calculations independently
+- Verify with licensed engineer before construction
+
+## License
+
+MIT License - Free to use and modify
 
 ## Disclaimer
 
-These skills are provided as engineering tools to assist qualified professionals. All designs should be reviewed by a chartered/professional engineer before implementation. The author assumes no liability for designs produced using these skills.
+**IMPORTANT:** These skills are professional tools to assist qualified engineers. All designs must be reviewed and sealed by a licensed professional engineer before implementation. The author assumes no liability for designs produced using these skills.
+
+Always follow local building codes and regulations.
 
 ---
 
-**Note:** Always verify calculations independently and follow local building codes and regulations. These skills supplement but do not replace professional engineering judgment.
+**Author:** Sompote Youwai
+**Version:** 1.0
+**Last Updated:** October 2025
