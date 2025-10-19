@@ -32,36 +32,43 @@ Comprehensive steel member design with Python calculation implementations.
 
 ## Installation
 
-### Option 1: Direct Copy (Recommended)
+### Quick Start: Download and Upload ZIP Files
+
+**Pre-packaged ZIP files are available in this repository!**
+
+1. **Download ZIP files from GitHub:**
+   - [eurocode7-foundation.zip](https://github.com/Sompote/claude_skill_CE/raw/main/eurocode7-foundation.zip)
+   - [aisc360-steel.zip](https://github.com/Sompote/claude_skill_CE/raw/main/aisc360-steel.zip)
+
+2. **Upload to Claude Desktop:**
+   - Open Claude Desktop
+   - Click your profile/settings
+   - Go to **"Custom Skills"** or **"Skills"** section
+   - Click **"Upload Skill"** or **"+"** button
+   - Select the downloaded ZIP file
+   - Repeat for both skills
+   - Restart Claude Desktop
+
+3. **Verify installation:**
+   ```
+   @eurocode7-foundation
+   @aisc360-steel
+   ```
+
+### Alternative: Direct Copy Method
 
 1. **Locate Claude's skills directory:**
    - macOS/Linux: `~/.claude/skills/`
    - Windows: `%USERPROFILE%\.claude\skills\`
 
-2. **Copy skills:**
+2. **Copy skill folders:**
    ```bash
    mkdir -p ~/.claude/skills/
    cp -r eurocode7-foundation ~/.claude/skills/
    cp -r aisc360-steel ~/.claude/skills/
    ```
 
-3. **Restart Claude Desktop** or reload Claude Code
-
-### Option 2: ZIP Upload to Claude Desktop
-
-1. **Create ZIP files for each skill:**
-   ```bash
-   cd /path/to/claude_skill
-   zip -r eurocode7-foundation.zip eurocode7-foundation/
-   zip -r aisc360-steel.zip aisc360-steel/
-   ```
-
-2. **Upload to Claude Desktop:**
-   - Open Claude Desktop
-   - Go to Settings > Custom Skills
-   - Click "Upload Skill"
-   - Select the ZIP file
-   - Restart Claude Desktop
+3. **Restart Claude Desktop**
 
 ## Usage
 

@@ -41,6 +41,3 @@ ENV/
 *.swp
 *.swo
 *~
-
-# ZIP files (generated for distribution)
-*.zip
